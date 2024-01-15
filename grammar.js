@@ -360,8 +360,15 @@ module.exports = grammar({
                 $.attached_modifier,
                 optional($.link_modifier),
             ),
+            seq(
+                optional($.spoiler_open),
+                $.attached_modifier,
+                optional($.spoiler_close),
+            ),
             alias($.link_modifier, "_word"),
             alias($._conflict_close, "_word"),
+            alias($.spoiler_open, "_word"),
+            alias($.spoiler_close, "_word"),
         ),
 
         // A verbatim paragraph element essentially ignores all inline markup.
